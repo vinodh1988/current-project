@@ -16,7 +16,10 @@ export class AppComponent {
 
   ngAfterContentInit(){
     console.log("parent content initialized")
-  
+    console.log('parent view  ', this.two?.data); 
+    console.log('parent view ', this.one?.data); 
+    console.log('parent view', this.one?.childinfo); 
+    console.log('parent view', this.two?.childinfo); 
   
   }
 
@@ -30,9 +33,10 @@ export class AppComponent {
 
   ngAfterViewInit() {
     console.log("parent view Ready")
-    /*console.log('parent view  ', this.two?.data); 
+    console.log('parent view  ', this.two?.data); 
     console.log('parent view ', this.one?.data); 
-    console.log('parent view', this.one);*/
-  }
+    console.log('parent view', this.one?.childinfo); 
+    console.log('parent view', this.two?.childinfo);  
+   }
 
 }

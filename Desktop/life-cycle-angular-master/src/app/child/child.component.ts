@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 @Input() data:any =" Big world ";
-private childinfo:string="World is so big"
+ childinfo:string="World is so big"
   constructor() {
      console.log(this.data, " in the constructor")
    }
