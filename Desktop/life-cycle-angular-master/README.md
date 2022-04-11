@@ -1,27 +1,72 @@
-# Sampleapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
-## Development server
+class BoxComponent {
+  a:string:=""
+  @Input() b:string=""
+  constructor(){}
+  ngOnInit(){}
+}
+Whenever a component is created? <app-box [b]="temp"><app-box>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+    1. The instance variables are loaded for the instance
+	        [it is one time activitiy]
+	2. Constructor executes
+	        [it is one time activitty]
+			at this point input type would not
+			be received from parent
+	3. Input Variables will be received from parent
+	
+	Now the component is said to be initialized
+	
+Yet the template would not be ready
 
-## Code scaffolding
+ template is combination of parent content
+ and child template
+ 
+  appbox.html
+  
+  <h1>Hey</h1>
+  <h3>do This </h3>
+  
+  <app-sample><app-sample>
+  
+  here, 
+    <h1>Hey</h1>
+  <h3>do This </h3>
+  is the current component content
+  
+  where as,
+  
+    <app-sample><app-sample>
+	is the child it has its own template
+	need to undergo lifecycle
+	
+Content
+  The current component template alone is called content
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+View
 
-## Build
+if the child component template is 
+rendered and merged with parent component
+template it is called view
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+If view is ready , it will be rendered on the
+screen
 
-## Running unit tests
+upon update on any state in the component
+the component will be re rendered
+that is 
+content and templated will be regenerated
+[update of the component]
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+if the component is removed from the container
+the component is destroyed
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+	
+The functions which we run at any phase of the 
+life cycle of a component is called as 
+life cycle hook
 
-## Further help
+https://v2.angular.io/resources/images/devguide/lifecycle-hooks/hooks-in-sequence.png
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
